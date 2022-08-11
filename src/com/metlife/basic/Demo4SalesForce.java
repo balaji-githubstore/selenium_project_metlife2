@@ -7,6 +7,9 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 
+/**
+ * Sales force sign up automation
+ */
 public class Demo4SalesForce {
     public static void main(String[] args) {
 
