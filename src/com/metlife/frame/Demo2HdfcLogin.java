@@ -5,8 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
 import java.time.Duration;
-//switching to frame using WebElement
-public class Demo1HdfcLogin {
+
+//switching to frame using index
+public class Demo2HdfcLogin {
 
     public static void main(String[] args) {
 
@@ -18,12 +19,13 @@ public class Demo1HdfcLogin {
 
         driver.get("https://netbanking.hdfcbank.com/netbanking/");
 
-        driver.switchTo().frame(driver.findElement(By.xpath("//frame[@name='login_page']")));
+        driver.switchTo().frame(0);
 
         driver.findElement(By.name("fldLoginUserId")).sendKeys("test123");
         driver.findElement(By.linkText("CONTINUE")).click();
 
         //switch to main html
         driver.switchTo().defaultContent();
+
     }
 }
