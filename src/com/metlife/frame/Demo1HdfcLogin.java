@@ -25,5 +25,7 @@ public class Demo1HdfcLogin {
 
         //switch to main html
         driver.switchTo().defaultContent();
+
+        driver.quit();
     }
 }
