@@ -6,8 +6,9 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
+
 //mouse hover
-public class Demo4Actions {
+public class Demo5Actions {
 
     public static void main(String[] args) {
 
@@ -23,9 +24,14 @@ public class Demo4Actions {
 
         Actions action=new Actions(driver);
 
-        action.moveToElement(driver.findElement(By.xpath("//*[text()='Membership']"))).perform();
+        action.
+                moveToElement(driver.findElement(By.xpath("//*[text()='Membership']")))
+                .pause(1000)
+                .moveToElement(driver.findElement(By.xpath("//*[text()='Become a member']")))
+                .pause(1000)
+                .build()
+                .perform();
 
-        action.moveToElement(driver.findElement(By.xpath("//*[text()='Become a member']"))).perform();
 
         driver.findElement(By.xpath("//a[text()='Membership Benefits']")).click();
 
