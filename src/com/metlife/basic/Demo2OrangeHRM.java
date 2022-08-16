@@ -15,7 +15,7 @@ public class Demo2OrangeHRM {
 
         WebDriver driver = new EdgeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
 
         driver.get("https://opensource-demo.orangehrmlive.com/");  //wait for page load to complete
 
@@ -26,7 +26,7 @@ public class Demo2OrangeHRM {
 //        WebElement element= driver.findElement(By.id("txtUsername"));
 //        element.sendKeys("Admin");
 
-        driver.findElement(By.id("txtUsername")).sendKeys("Admin");  //check for presence of element in 0.5s
+        driver.findElement(By.id("txtUsername33")).sendKeys("Admin");  //check for presence of element in 0.5s
 
         driver.findElement(By.id("txtPassword")).sendKeys("admin123");
 
