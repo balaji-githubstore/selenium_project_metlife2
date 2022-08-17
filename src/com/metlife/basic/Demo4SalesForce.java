@@ -3,6 +3,7 @@ package com.metlife.basic;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
@@ -33,15 +34,29 @@ public class Demo4SalesForce {
         selectEmployees.selectByValue("250");
 
         Select selectCountry=new Select(driver.findElement(By.xpath("//select[contains(@id,'Country')]")));
-        selectCountry.selectByVisibleText("United Kingdom");
+       // selectCountry.selectByVisibleText("United Kingdom");
+        String text=selectCountry.getFirstSelectedOption().getText();
+        System.out.println(text);
 
-        driver.findElement(By.xpath("//div[@class='checkbox-ui']")).click();
+        selectCountry.getOptions().forEach(x-> System.out.println(x.getText()));
 
-        driver.findElement(By.name("start my free trial")).click();
 
-//        driver.findElement(By.xpath("//button[contains(text(),'start my free trial')]")).click();
+        driver.findElement(By.xpath("//select[contains(@id,'Country')]")).click();
+        //scroll and click if direct click not work
+        driver.findElement(By.xpath("//option[contains(text(),'USA')]")).click();
+//        driver.findElement(By.xpath("//div[@class='checkbox-ui']")).click();
+//
+//        driver.findElement(By.name("start my free trial")).click();
+//
+////        driver.findElement(By.xpath("//button[contains(text(),'start my free trial')]")).click();
+//
+//        String actualError=driver.findElement(By.xpath("//span[contains(@id,'UserPhon')]")).getText();
+//        System.out.println(actualError);
+//
+//        Actions actions=new Actions(driver);
+//        actions.scrollToElement(driver.findElement(By.xpath(""))).perform();
+//        driver.findElement(By.xpath("")).click();
 
-        String actualError=driver.findElement(By.xpath("//span[contains(@id,'UserPhon')]")).getText();
-        System.out.println(actualError);
+
     }
 }
