@@ -1,6 +1,7 @@
 package com.metlife.seleniumadvance;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 
@@ -26,11 +27,11 @@ public class Demo10DynamicPage {
 //        driver.findElement(By.id("checkin")).sendKeys("31-08-2022");
         //way 2
 //        driver.executeScript("document.querySelector('#checkin').value='20-08-2022';document.querySelector('#checkout').value='04-09-2022'");
-
+        JavascriptExecutor js= (JavascriptExecutor) driver;
         WebElement ele1= driver.findElement(By.xpath("//input[@id='checkin']"));
         WebElement ele2= driver.findElement(By.xpath("//input[@id='checkout']"));
 
-        driver.executeScript("arguments[0].value='24-08-2022';arguments[1].value='05-09-2022'",ele1,ele2);
+        js.executeScript("arguments[0].value='24-08-2022';arguments[1].value='05-09-2022'",ele1,ele2);
 
     }
 }

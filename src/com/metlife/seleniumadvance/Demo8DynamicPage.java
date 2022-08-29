@@ -1,6 +1,7 @@
 package com.metlife.seleniumadvance;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
@@ -13,7 +14,7 @@ public class Demo8DynamicPage {
 
         System.setProperty("webdriver.edge.driver", "driver/msedgedriver.exe");
 
-        EdgeDriver driver = new EdgeDriver();
+        WebDriver driver = new EdgeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
@@ -27,8 +28,9 @@ public class Demo8DynamicPage {
 //        driver.findElement(By.id("checkin")).sendKeys("31-08-2022");
 
         //way 1
-        driver.executeScript("document.querySelector('#checkin').value='20-08-2022'");
+        JavascriptExecutor js= (JavascriptExecutor) driver;
+        js.executeScript("document.querySelector('#checkin').value='20-08-2022'");
 
-        driver.executeScript("document.querySelector('#checkout').value='04-09-2022'");
+        js.executeScript("document.querySelector('#checkout').value='04-09-2022'");
     }
 }

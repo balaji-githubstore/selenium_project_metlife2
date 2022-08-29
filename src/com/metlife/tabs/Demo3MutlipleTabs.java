@@ -6,9 +6,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.List;
 
-public class Demo1MutlipleTabs {
+public class Demo3MutlipleTabs {
 
     public static void main(String[] args) {
 
@@ -23,27 +22,18 @@ public class Demo1MutlipleTabs {
         //click on phpMyAdmin
         driver.findElement(By.partialLinkText("phpMyAdmin")).click();
 
-        List<String> windows=new ArrayList<>(driver.getWindowHandles());
+        ArrayList<String> windows=new ArrayList<>(driver.getWindowHandles());
 
-        System.out.println(windows.get(0));
-        System.out.println(windows.get(1));
-
-        //switch to 2nd tab
-        driver.switchTo().window(windows.get(1));
-
+        for(String window : windows)
+        {
+            driver.switchTo().window(window);
+            if(driver.getTitle().equals("phpMyAdmin"))
+            {
+                break;
+            }
+        }
         driver.findElement(By.id("input_username")).sendKeys("Admin");
         driver.findElement(By.id("input_password")).sendKeys("admin123");
         driver.findElement(By.id("input_go")).click();
-
-        String actualError= driver.findElement(By.xpath("//div[contains(text(),'Access')]")).getText();
-        System.out.println(actualError);
-
-        driver.close();  //close the current tab/session
-
-        //switch to 1st tab
-        driver.switchTo().window(windows.get(0));
-        System.out.println(driver.getTitle());
-
-        driver.quit();
     }
 }

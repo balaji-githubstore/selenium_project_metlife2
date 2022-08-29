@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -31,6 +33,9 @@ public class Demo2OrangeHRM {
         driver.findElement(By.id("txtPassword")).sendKeys("admin123");
 
         driver.findElement(By.name("Submit")).click();
+
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Logout")));
 
         System.out.println(driver.getCurrentUrl());
 

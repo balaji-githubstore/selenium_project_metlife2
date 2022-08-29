@@ -31,4 +31,5 @@ public class Demo1 {
 
         driver.switchTo().alert().dismiss();
     }
+
 }
